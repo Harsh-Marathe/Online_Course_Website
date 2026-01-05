@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLux Academy - Premium Course Marketplace</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <custom-navbar></custom-navbar>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-20 animate-fade-in">
+            <h1 class="text-5xl font-bold text-dark mb-6">Master New Skills with <span class="text-primary">Premium</span> Courses</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">Hand-picked courses from industry experts to boost your career</p>
+            <div class="relative max-w-xl mx-auto">
+                <input type="text" placeholder="Search courses..." class="w-full px-6 py-4 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm">
+                <button class="absolute right-2 top-2 bg-primary text-white p-2 rounded-full">
+                    <i data-feather="search"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Course Categories -->
+        <section class="mb-16 animate-slide-up">
+            <h2 class="text-2xl font-semibold text-dark mb-6">Popular Categories</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="code" class="text-primary"></i>
+                    </div>
+                    <h3 class="font-medium">Development</h3>
+                </div>
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="bar-chart-2" class="text-secondary"></i>
+                    </div>
+                    <h3 class="font-medium">Business</h3>
+                </div>
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-pink-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="film" class="text-pink-500"></i>
+                    </div>
+                    <h3 class="font-medium">Design</h3>
+                </div>
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="camera" class="text-yellow-500"></i>
+                    </div>
+                    <h3 class="font-medium">Photography</h3>
+                </div>
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="music" class="text-purple-500"></i>
+                    </div>
+                    <h3 class="font-medium">Music</h3>
+                </div>
+                <div class="category-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-primary/20">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i data-feather="heart" class="text-red-500"></i>
+                    </div>
+                    <h3 class="font-medium">Health</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Courses -->
+        <section class="mb-16">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold text-dark">Featured Courses</h2>
+                <a href="#" class="text-primary hover:underline">View all</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-primary/20 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="http://static.photos/technology/640x360/1" alt="Course thumbnail" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-2 py-1 rounded">Bestseller</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="flex items-center text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-2">(4.9)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Advanced JavaScript Patterns</h3>
+                        <p class="text-gray-600 text-sm mb-4">Master modern JavaScript techniques used by senior developers</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">$89.99</span>
+                            <button class="add-to-cart-btn bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center">
+                                <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-primary/20 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="http://static.photos/workspace/640x360/2" alt="Course thumbnail" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="flex items-center text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-2">(5.0)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Product Management Masterclass</h3>
+                        <p class="text-gray-600 text-sm mb-4">From ideation to launch - the complete product lifecycle</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">$129.99</span>
+                            <button class="add-to-cart-btn bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center">
+                                <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div class="course-card bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-primary/20 transform hover:-translate-y-1">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="http://static.photos/design/640x360/3" alt="Course thumbnail" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-2 py-1 rounded">New</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <div class="flex items-center text-yellow-400">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-gray-500 text-sm ml-2">(4.8)</span>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">UX/UI Design Principles</h3>
+                        <p class="text-gray-600 text-sm mb-4">Create interfaces that users love with proven design methods</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-primary font-bold">$99.99</span>
+                            <button class="add-to-cart-btn bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center">
+                                <i data-feather="shopping-cart" class="w-4 h-4 mr-2"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl p-8">
+            <h2 class="text-2xl font-semibold text-dark mb-8 text-center">What Our Students Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/1" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-medium">Sarah Johnson</h4>
+                            <div class="flex items-center text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The JavaScript course transformed my career. I went from junior to senior developer in just 6 months!"</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/2" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-medium">Michael Chen</h4>
+                            <div class="flex items-center text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The instructors are industry experts who actually know what they're talking about. Worth every penny."</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/3" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-medium">Emily Rodriguez</h4>
+                            <div class="flex items-center text-yellow-400 mt-1">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I've taken many online courses but none as comprehensive and well-structured as these. Highly recommend!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="bg-primary rounded-2xl p-10 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Career?</h2>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Join thousands of students who have accelerated their careers with our premium courses</p>
+            <a href="#" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+                Browse All Courses
+            </a>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6 h-full flex flex-col">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-semibold">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto">
+                <!-- Cart items will be added here dynamically -->
+                <div class="text-center py-10">
+                    <i data-feather="shopping-cart" class="w-12 h-12 mx-auto text-gray-300 mb-4"></i>
+                    <p class="text-gray-500">Your cart is empty</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-4 mt-auto">
+                <div class="flex justify-between mb-4">
+                    <span class="font-medium">Subtotal</span>
+                    <span class="font-semibold">$0.00</span>
+                </div>
+                <a href="checkout.html" class="block w-full bg-primary hover:bg-primary/90 text-white text-center py-3 rounded-lg transition-colors">
+                    Proceed to Checkout
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <script src="./components/navbar.js"></script>
+    <script src="./components/footer.js"></script>
+    <script src="./script.js"></script>
+    <script>feather.replace();</script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>
