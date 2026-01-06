@@ -344,4 +344,86 @@ body {
 .overflow-hidden { overflow: hidden; }
 .overflow-auto { overflow: auto; }
 .overflow-x-hidden { overflow-x: hidden; }
-.overflow-y-auto { overflow-y: auto; }
+/* ===================================
+   DARK MODE SUPPORT
+   =================================== */
+
+body.dark-mode {
+  background-color: var(--gray-900);
+  color: var(--gray-100);
+}
+
+body.dark-mode .glass,
+body.dark-mode .glass-card,
+body.dark-mode .navbar {
+  background: rgba(17, 24, 39, 0.85); /* gray-900 with opacity */
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--gray-100);
+}
+
+body.dark-mode .course-card,
+body.dark-mode .testimonial-card,
+body.dark-mode .contact-info,
+body.dark-mode .mission-content,
+body.dark-mode .auth-card {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+  color: var(--gray-100);
+}
+
+body.dark-mode .course-card__title,
+body.dark-mode .section-title,
+body.dark-mode .hero__title,
+body.dark-mode .about-hero__title,
+body.dark-mode .checkout__title,
+body.dark-mode .confirmation__title,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: var(--white);
+}
+
+body.dark-mode .course-card__description,
+body.dark-mode .text-gray-600,
+body.dark-mode p {
+  color: var(--gray-400);
+}
+
+body.dark-mode .navbar__link {
+  color: var(--gray-300);
+}
+
+body.dark-mode .navbar__link:hover {
+  color: var(--white);
+}
+
+body.dark-mode .form-input {
+  background: var(--gray-800);
+  border-color: var(--gray-700);
+  color: var(--white);
+}
+
+body.dark-mode .form-input:focus {
+  border-color: var(--primary-500);
+  background: var(--gray-900);
+}
+
+body.dark-mode .footer {
+  background: var(--gray-900);
+  border-top: 1px solid var(--gray-800);
+}
+
+body.dark-mode .order-item,
+body.dark-mode .payment-method,
+body.dark-mode .purchased-courses,
+body.dark-mode .confirmation__detail-item,
+body.dark-mode .mission-section,
+body.dark-mode .file-upload__label {
+  background: var(--gray-800);
+}
+
+body.dark-mode .checkout__subtitle,
+body.dark-mode .payment-verification__subtitle {
+  color: var(--gray-400);
+}

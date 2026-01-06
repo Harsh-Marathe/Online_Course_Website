@@ -11,20 +11,18 @@ export const useCart = () => {
 };
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Load cart from localStorage on mount
-  useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      try {
-        setCartItems(JSON.parse(savedCart));
-      } catch (error) {
-        console.error('Error loading cart from localStorage:', error);
-      }
+  // Load cart from localStorage on mount (Lazy initialization)
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const savedCart = localStorage.getItem('cart');
+      return savedCart ? JSON.parse(savedCart) : [];
+    } catch (error) {
+      console.error('Error loading cart from localStorage:', error);
+      return [];
     }
-  }, []);
+  });
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {
@@ -34,12 +32,12 @@ export const CartProvider = ({ children }) => {
   const addToCart = (course) => {
     // Check if course already exists in cart
     const existingItem = cartItems.find(item => item._id === course._id);
-    
+
     if (existingItem) {
       // Course already in cart, don't add duplicate
       return false;
     }
-    
+
     setCartItems(prev => [...prev, course]);
     setIsCartOpen(true);
     return true;

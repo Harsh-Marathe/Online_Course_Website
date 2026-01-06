@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { paymentAPI } from '../services/api';
 import '../styles/pages.css';
 
 const PaymentVerification = () => {
     const { cartItems, getCartTotal, clearCart } = useCart();
+    const { user } = useAuth();
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+    React.useEffect(() => {
+        if (!user) {
+            navigate('/login');
+        }
+    }, [user, navigate]);
     const [screenshot, setScreenshot] = useState(null);
     const [previewUrl, setPreviewUrl] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);

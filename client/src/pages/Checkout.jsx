@@ -1,11 +1,19 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import '../styles/pages.css';
 
 const Checkout = () => {
     const { cartItems, getCartTotal } = useCart();
+    const { user } = useAuth();
     const navigate = useNavigate();
+
+    React.useEffect(() => {
+        if (!user) {
+            navigate('/login');
+        }
+    }, [user, navigate]);
 
     if (cartItems.length === 0) {
         return (
